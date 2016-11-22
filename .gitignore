@@ -1,0 +1,9 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Composer
+# https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+composer.phar
+vendor
+node_modules

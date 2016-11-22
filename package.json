@@ -1,0 +1,15 @@
+{
+  "name": "TDD-test-smells",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=6.5.0"
+  },
+  "devDependencies": {
+    "ghooks": "^1.3.2",
+    "gulp": "^3.9.1",
+    "gulp-help": "^1.6.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-shell": "^0.5.2",
+    "require-dir": "^0.3.0"
+  }
+}

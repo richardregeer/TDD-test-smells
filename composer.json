@@ -1,0 +1,23 @@
+{
+  "name": "richardregeer/tdd-test-smells",
+  "description": "TDD examples and solutions of test smells",
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "phake/phake": "^2.3",
+    "phpunit/phpunit": "^5.5",
+    "rregeer/phpunit-coverage-check": "^0.1.3",
+    "fiunchinho/phpunit-randomizer": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "TDDSmells\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TDDSmells\\Tests\\": "tests/"
+    }
+  }
+}
