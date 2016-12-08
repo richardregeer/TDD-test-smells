@@ -1,0 +1,16 @@
+---
+# This playbook installs the base components for the workshop.
+
+- name: Unlink brew packages.
+  homebrew: name={{ item }} state=unlinked
+  with_items: "{{ unlink_homebrew_packages }}"
+  register: command_result
+  failed_when: command_result == ''
+
+- name: Install required brew packages.
+  homebrew: name={{ item }} state=present
+  with_items: "{{ install_homebrew_packages }}"
+
+- name: Install the required npm dependencies.
+  npm: name={{ item }} state=present version=latest global=yes
+  with_items: "{{ npm_packages }}"

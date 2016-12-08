@@ -1,0 +1,18 @@
+---
+# This playbook installs and intialize the components.
+- name: Stop all active docker containers.
+  shell: docker stop $(docker ps -a -q)
+  register: command_result
+  failed_when: "command_result.rc > 1"
+
+- name: Destroy the workshop components.
+  command: "docker-compose down"
+
+- name: Re-build the workshop components.
+  command: "docker-compose build"
+
+- name: Start the workshop components.
+  command: "docker-compose up -d"
+
+- name: Wait for Mysql to be up.
+  wait_for: port=3306 delay=5 timeout=60

@@ -1,0 +1,6 @@
+---
+# All the global npm variables.
+
+npm_packages:
+ - gulp
+ - n

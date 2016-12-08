@@ -1,0 +1,14 @@
+---
+# All the global homebrew variables.
+
+install_homebrew_packages:
+ - docker-compose
+ - node
+ - php70
+ - php70-xdebug
+ - composer
+
+unlink_homebrew_packages:
+ - php55
+ - php56
+ - php71

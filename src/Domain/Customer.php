@@ -6,25 +6,82 @@ namespace TDDSmells\Domain;
 class Customer
 {
     /** @var int */
-    private $customerId = 0;
+    private $customerId;
 
     /** @var string */
-    private $name = '';
+    private $firstName;
 
     /** @var string */
-    private $gender = self::GENDER_MALE;
+    private $lastName;
 
-    const GENDER_MALE = 'Male';
-    const GENDER_FEMALE = 'Female';
+    /** @var string */
+    private $email;
+
+    /** @var string */
+    private $phone;
+
+    /** @var string */
+    private $gender;
 
     /**
      * @param int $customerId
-     * @param string $name
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $gender
      */
-    public function __construct(int $customerId, string $name)
-    {
+    public function __construct(
+        int $customerId,
+        string $firstName,
+        string $lastName,
+        string $gender
+    ) {
         $this->customerId = $customerId;
-        $this->name = $name;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->gender = $gender;
+
+        $this->phone = '';
+        $this->email = '';
+    }
+
+    /**
+     * @param int $customerId
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $gender
+     * @param string $email
+     * @param string $phone
+     * @return Customer
+     */
+    public static function withContactInformation(
+        int $customerId,
+        string $firstName,
+        string $lastName,
+        string $gender,
+        string $email,
+        string $phone
+    ) {
+        $customer = new Customer($customerId, $firstName, $lastName, $gender);
+        $customer->email = $email;
+        $customer->phone = $phone;
+
+        return $customer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
     }
 
     /**
@@ -35,14 +92,20 @@ class Customer
         return $this->gender;
     }
 
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 
     /**
-     * @param string $value
-     * @return void
+     * @return string
      */
-    public function setGender(string $value)
+    public function getPhone(): string
     {
-        $this->gender = $value;
+        return $this->phone;
     }
 
     /**
@@ -56,16 +119,9 @@ class Customer
     /**
      * @return string
      */
-    public function getName(): string
+    public function getFullName() :string
     {
-        return $this->name;
-    }
 
-    /**
-     * @return string
-     */
-    public function getCustomerTag() :string
-    {
-        return $this->gender . '-' . $this->name . '-' . $this->customerId;
+        return "$this->firstName $this->lastName";
     }
 }

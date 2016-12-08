@@ -1,0 +1,13 @@
+version: '2'
+services:
+ ecommerce-slugs-mysql:
+   container_name: tdd-test-smells-mysql
+   environment:
+     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+     - MYSQL_DATABASE=customers
+   image: mysql:5.7
+   ports:
+     - 3306:3306
+   volumes:
+     - ./schema/database.sql:/docker-entrypoint-initdb.d/1-database.sql
+     - ./data/customer-data.sql:/docker-entrypoint-initdb.d/2-customer-data.sql

@@ -1,0 +1,9 @@
+---
+# This playbook installs the workshop on the localhost.
+
+- hosts: local
+  connection: local
+  roles:
+    - common
+    - components
+    - workshop

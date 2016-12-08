@@ -2,7 +2,8 @@
   "name": "richardregeer/tdd-test-smells",
   "description": "TDD examples and solutions of test smells",
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "simplon/mysql": "^1.3"
   },
   "require-dev": {
     "phake/phake": "^2.3",

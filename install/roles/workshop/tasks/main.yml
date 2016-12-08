@@ -1,0 +1,10 @@
+---
+# This playbook install the workshop
+
+- name: Install the workshop php dependencies.
+  command: "composer install"
+  args:
+    chdir: "../"
+
+- name: Install the workshop javascript dependencies.
+  npm: path="../../" state=latest
